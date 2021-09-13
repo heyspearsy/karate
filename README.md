@@ -768,7 +768,7 @@ Or another option is to use a [`ThresholdFilter`](http://logback.qos.ch/manual/f
 
 If you want to exclude the logs from your CI/CD pipeline but keep them in the execution of your users in their locals you can configure your logback using [Janino](http://logback.qos.ch/manual/configuration.html#conditional). In such cases it might be desirable to have your tests using `karate.logger.debug('your additional info')` instead of the `print` keyword so you can keep logs in your pipeline in INFO.
 
-For suppressing sensitive information such as secrets and passwords from the log, see [Log Masking](#log-masking).
+For suppressing sensitive information such as secrets and passwords from the log and reports, see [Log Masking](#log-masking) and [Report Verbosity](#report-verbosity).
 
 # Configuration
 > You can skip this section and jump straight to the [Syntax Guide](#syntax-guide) if you are in a hurry to get started with Karate. Things will work even if the `karate-config.js` file is not present.
@@ -2426,7 +2426,7 @@ And if you need to suppress placeholder substitution for [`read()`](#reading-fil
 * json schema = karate.readAsString('schema.json')
 ```
 
-Something similar can be done for XML by using [`text`](#text) and "casting" to XML before use in a [`match`](#match):
+If you want to use the triple-quote / multi-line way of defining JSON or if you have to use XML - you can use [`text`](#text) and "cast" to JSON or XML as a second step -  before using in a [`match`](#match):
 
 ```cucumber
 * text schema =
